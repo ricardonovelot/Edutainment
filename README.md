@@ -1,6 +1,7 @@
-# Edutainment App - SwiftUI Day 35 Challenge
+
 
 <table>
+# Edutainment App - SwiftUI Day 35 Challenge
 <tr>
 <td>
 
@@ -38,9 +39,6 @@ To use the Edutainment app, follow these steps:
 
 1. Clone the repository to your local machine:
 git clone https://github.com/ricardonovelot/Edutainment.git
-
-markdown
-Copy code
 2. Open the project in Xcode.
 3. Select a target simulator or device.
 4. Run the app using Xcode.
