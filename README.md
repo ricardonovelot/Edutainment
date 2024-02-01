@@ -1,4 +1,3 @@
 App showcase:
 
-https://github.com/ricardonovelot/Edutainment/assets/84286086/fdab70d5-3843-41cb-852d-559ae8be3415
-
+https://github.com/ricardonovelot/Edutainment/assets/84286086/77c1d902-b3c9-4317-bfb4-ad55c0c4a4e1
