@@ -26,62 +26,69 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var factor = 12
-    @State private var selectedAmountOfQuestions = 3
-    @State private var settingsMode = true
-    @State private var userAnswer = ""
-    @State private var score = 0
-    @State private var questionsAsked = 0
-    @State private var questionsResponded = 0
-    
-    // Answer Alert
+    // State variables for the app's functionality
+    @State private var factor = 12 // Max multiplication factor
+    @State private var selectedAmountOfQuestions = 3 // Number of questions
+    @State private var settingsMode = true // Determines whether the settings or game view is shown
+    @State private var userAnswer = "" // Stores user's answer
+    @State private var score = 0 // User's score
+    @State private var questionsAsked = 0 // Count of questions asked
+    @State private var questionsResponded = 0 // Count of questions answered
+
+    // Variables for handling alerts
     @State private var showAnswerAlert = false
     @State private var alertMessage = ""
-    
     @State private var showQuitConfirmationAlert = false
-    
     @State private var showfinishGameAlert = false
     @State private var finishAlertMessage = ""
     
-    let amountOfQuestions = [3,5,10]
+    // Predefined set of question amounts
+    let amountOfQuestions = [3, 5, 10]
     
-    struct Question{
+    // Question struct to store each question and its correct answer
+    struct Question {
         var question: String
         var correctAnswer: Int
     }
     
+    // Current question being asked
     @State private var currentQuestion = Question(question: "", correctAnswer: 0)
     
+    // The body of the ContentView
     var body: some View {
         if settingsMode {
-            NavigationStack{
-                VStack{
-                    Form{
-                        Section("Amount of questions"){
-                            Picker("Questions", selection: $selectedAmountOfQuestions){
-                                ForEach(amountOfQuestions, id: \.self){
+            // Settings View
+            NavigationStack {
+                VStack {
+                    Form {
+                        // Section for selecting the amount of questions
+                        Section("Amount of questions") {
+                            Picker("Questions", selection: $selectedAmountOfQuestions) {
+                                ForEach(amountOfQuestions, id: \.self) {
                                     Text("\($0)")
                                 }
                             }.pickerStyle(SegmentedPickerStyle())
                         }
-                        Section("Dificulty"){
+                        // Section for selecting the difficulty
+                        Section("Difficulty") {
                             Stepper("\(factor)", value: $factor, in: 1...12)
                         }
                     }
                 }
                 .navigationTitle("Settings")
-                .toolbar{
-                    Button("Summit"){
+                .toolbar {
+                    Button("Submit") {
                         NewQuestion()
                         startGame()
                     }
                 }
             }
         } else {
-            NavigationView{
+            // Game View
+            NavigationView {
                 Form {
-                    Section("How Much is \(currentQuestion.question)"){
-                        TextField("Answer",text:$userAnswer)
+                    Section("How Much is \(currentQuestion.question)") {
+                        TextField("Answer", text: $userAnswer)
                             .keyboardType(.numberPad)
                     }
                 }
@@ -107,8 +114,8 @@ struct ContentView: View {
                         }
                     }
                 }
-                
-                .alert("\(alertMessage)", isPresented: $showAnswerAlert){
+                // Alerts for answer feedback and game completion
+                .alert("\(alertMessage)", isPresented: $showAnswerAlert) {
                     Button("OK", role: .cancel) {
                         if !showfinishGameAlert {
                             NewQuestion()
@@ -117,12 +124,12 @@ struct ContentView: View {
                 } message: {
                     Text("\(currentQuestion.question) = \(currentQuestion.correctAnswer)")
                 }
-                .alert("\(finishAlertMessage)", isPresented: $showfinishGameAlert){
+                .alert("\(finishAlertMessage)", isPresented: $showfinishGameAlert) {
                     Button("OK", role: .cancel) { restartGame() }
                 } message: {
                     Text("Thanks for playing!")
                 }
-                .alert(isPresented: $showQuitConfirmationAlert){
+                .alert(isPresented: $showQuitConfirmationAlert) {
                     Alert(
                         title: Text("\(alertMessage)"),
                         message: Text("You will lose your progress"),
@@ -137,6 +144,7 @@ struct ContentView: View {
     }
     
     func readAnswer(){
+        // Logic to check the user's answer
         if Int(userAnswer) == currentQuestion.correctAnswer {
             score += 10
             alertMessage = "Your answer is Correct"
@@ -152,6 +160,7 @@ struct ContentView: View {
     }
     
     func NewQuestion(){
+        // Logic to generate a new question
         let multiplier = Int.random(in: 2...10)
         let multiplicand = Int.random(in: 2...factor)
         currentQuestion = Question(question: "\(multiplier) x \(multiplicand)", correctAnswer: multiplier * multiplicand)
@@ -160,20 +169,24 @@ struct ContentView: View {
     }
     
     func startGame(){
+        // Logic to start the game
         settingsMode = false
     }
     
     func finishGame(){
+        // Logic to finish the game and show results
         finishAlertMessage = "You scored \(score) pts"
         showfinishGameAlert = true
     }
     
     func quitConfirmation(){
+        // Logic to confirm quitting the game
         alertMessage = "Are you sure you want to quit?"
         showQuitConfirmationAlert = true
     }
     
     func restartGame(){
+        // Logic to restart the game
         score = 0
         questionsAsked = 0
         questionsResponded = 0
