@@ -26,7 +26,9 @@ This app showcases the progress and skills acquired by Day 35 of the course. Key
 </td>
 <td>
 
-![Edutainment App Demo](https://github.com/ricardonovelot/Edutainment/assets/84286086/1ee4e0ec-749e-4459-af6f-306aa1349f34)
+![Edutainment App Demo](https://github.com/ricardonovelot/Edutainment-App_SwiftUI-Day-35-Challenge/assets/84286086/2cb8d554-aff2-4d2a-918f-cd32e94de6d0)
+
+
 
 </td>
 </tr>
