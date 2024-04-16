@@ -1,4 +1,4 @@
-# Edutainment App - SwiftUI Day 35 Challenge
+# Edutainment App
 
 <table>
 <tr>
