@@ -6,7 +6,7 @@
 
 ## About the Project
 
-The Edutainment app, developed as part of Day 35's challenge in the "100 Days with SwiftUI" course, is a SwiftUI-based educational app for children practicing multiplication tables.
+The Edutainment app is a SwiftUI-based educational app for children practicing multiplication tables.
 
 ### Features
 
@@ -15,13 +15,11 @@ The Edutainment app, developed as part of Day 35's challenge in the "100 Days wi
 - **Dynamic Questions:** Questions are generated randomly within the chosen difficulty range.
 - **Intuitive Interface:** Incorporates user-friendly elements like steppers, pickers, and buttons.
 
-### Learning Journey
+### Technical Highlights
 
-This app showcases the progress and skills acquired by Day 35 of the course. Key learnings implemented in this project include:
 - Managing app state for game settings and flow.
-- Using structs to structure question data.
-- Building SwiftUI views for a user-friendly interface.
-- Utilizing closures for data transfer between views.
+- SwiftUI views for a user-friendly interface.
+- Closures for data transfer between views.
 
 
 </td>
