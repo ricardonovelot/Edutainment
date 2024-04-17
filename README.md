@@ -1,4 +1,4 @@
-# Edutainment App
+# Edutainment
 
 <table>
 <tr>
