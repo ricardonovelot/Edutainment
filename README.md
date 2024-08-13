@@ -25,18 +25,6 @@ The Edutainment app is a SwiftUI-based educational app for children practicing m
 </tr>
 </table>
 
-## Installation and Usage
-
-To use the Edutainment app, follow these steps:
-
-1. Clone the repository to your local machine:
-git clone https://github.com/ricardonovelot/Edutainment.git
-2. Open the project in Xcode.
-3. Select a target simulator or device.
-4. Run the app using Xcode.
-
-Note: This app requires Xcode and an iOS simulator or device to run.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
